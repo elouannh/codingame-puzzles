@@ -22,13 +22,13 @@ int	main(void)
 	int	initial_tx;
 	int	initial_ty;
 	int	t[2];
+	int	remaining_turns;
 
 	scanf("%d%d%d%d", &light_x, &light_y, &initial_tx, &initial_ty);
 	t[0] = initial_tx;
 	t[1] = initial_ty;
 	while (1)
 	{
-		int	remaining_turns;
 		scanf("%d", &remaining_turns);
 		fprintf(stderr, "x: %d/%d y: %d/%d\n", t[0], light_x, t[1], light_y);
 		if (t[1] != light_y)
@@ -37,7 +37,7 @@ int	main(void)
 				printf("N");
 			else
 				printf("S");
-			t[1] += (-(t[1] > light_y) + (t[0] < light_y));
+			t[1] += (-(t[1] > light_y) + (t[1] < light_y));
 		}
 		if (t[0] != light_x)
 		{
